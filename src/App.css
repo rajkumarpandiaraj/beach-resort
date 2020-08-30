@@ -1,38 +1,325 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  line-height: 1.4;
+  font-size: 18px;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+}
+nav{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+}
+header{
+  background-color: #f7fac8de;
+  height: 66px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.header-flex{
+  height: 66px;
+  width: 50%;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#menu{
+  display: none;
+}
+.items{
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: 5em;
+
+}
+.item-link{
+  color: #4b4747;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 1em;
+}
+.item-link:hover{
+  opacity: 0.7;
+}
+.showcase{
+  position: relative;
+  width: 100%;
+  margin-top: 66px;
+  height: calc(100vh - 66px);
+
+  /* background: url('./components/images/defaultBcg.jpeg'); */
+  background-repeat: no-repeat !important;
+  background-position: center  !important;
+  background-size: cover  !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.banner{
+  width: 80%;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner h1{
+  font-size: 4rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.subtitle{
+  color: rgb(194, 189, 189);
+  font-size: 1.4rem;
+}
+.sm-border{
+  width: 100px;
+  height: 4px;
+  margin: 0.5rem 0 1rem 0;
+  background-color: rgb(207, 151, 28);
+  border-radius: 10px;
+}
+.btn{
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 2px solid rgb(207, 151, 28);
+  background-color: rgb(207, 151, 28);
+}
+.btn:hover{
+  cursor: pointer;
+  color: rgb(207, 151, 28);
+  background-color: transparent;
+}
+.services{
+  background-color: rgb(153, 153, 153);
+  text-align: center;
+  padding: 1rem;
+}
+.title{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.title h1{
+  font-size: 3rem;
+}
+.service-box{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 1rem 0;
+}
+.service h3{
+  margin: 1rem 0;
+}
+.featured{
+  padding: 1rem;
+
+}
+.featured-room{
+  width: 90%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+}
+.room{
+  position: relative;
+  overflow: hidden;
+}
+.room-img{
+  width: 100%;
+}
+.room-title{
+  background-color: rgb(153, 153, 153);
+  text-align: center;
+}
+.price{
+  position: absolute;
+  top: 0;
+  padding: 0.4rem;
+  border-bottom-right-radius: 15px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.room-overlay{
+  width: 100%;
+  height: 87%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  transform: translateY(-100%);
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation-name: overlay-ani-close ;
+  animation-duration : 1s ;
+
+}
+/* Hover Effect for rooms */
+.room:hover .room-overlay{
+  animation-name: overlay-ani-open ;
+  animation-duration : 1s ;
+  animation-fill-mode: forwards;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes overlay-ani-open{
+  from{
+    transform: translateY(-100%);
+    
   }
-  to {
-    transform: rotate(360deg);
+  to{
+    transform: translateY(0%);
+  }
+}
+@keyframes overlay-ani-close{
+  from{
+    transform: translateY(0%);
+    
+  }
+  to{
+    transform: translateY(-100%);
+  }
+}
+/* Rooms page */
+.rooms-rooms{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.rooms-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+form{
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+}
+input{
+  width: 200px;
+  padding: 0.2rem;
+}
+/* input[type='range']{
+  width: 400px;
+} */
+.check{
+  width: 10px;
+  margin-right: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width : 800px){
+  #menu{
+    display: block;
+  }
+  header{
+    flex-direction: column;
+    height: 100%;
+    background-color: transparent;
+  }
+  .header-flex{
+    width: 100%;
+    height: 66px;
+    padding: 0 3rem;
+    background-color: #f7fac8de;
+
+  }
+  .items{
+    flex-direction: column;
+    height: 100px;
+    text-align: center;
+    width: 100%;
+    background-color: #f7fac8de;
+    margin: 0;
+  }
+  #show{
+    display: block;
+  }
+  #hide{
+    display: none;
+
+  }
+  .item-link{
+    display: block;
+    margin: 0.5rem 0;
+  }
+  .service-box, .featured-room, .rooms-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width : 500px){
+  .header-flex{
+    padding: 0 1rem;
+  }
+  .banner h1{
+    font-size: 3rem;
+  }
+  .service-box, .featured-room, .rooms-container{
+    grid-template-columns: 1fr ;
   }
 }
