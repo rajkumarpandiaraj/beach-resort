@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Showcase from './Showcase';
+import defaultBcg from "../images/defaultBcg.jpeg";
+
+
 
 function Error() {
     return (
         <div>
-            <h1>from error</h1>
+            <Showcase bg={defaultBcg} title='404 Error'
+                                            path='/' btnTitle='HOME'/>
+        
         </div>
     )
 }

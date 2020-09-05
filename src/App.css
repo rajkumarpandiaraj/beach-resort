@@ -13,14 +13,15 @@ body{
 nav{
   height: 100%;
   width: 100%;
-  position: fixed;
+  position: relative;
   z-index: 3;
-  top: 0;
 }
 header{
   background-color: #f7fac8de;
   height: 66px;
   width: 100%;
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
 }
@@ -119,6 +120,7 @@ header{
 }
 .title h1{
   font-size: 3rem;
+  text-align: center;
 }
 .service-box{
   display: grid;
@@ -144,6 +146,9 @@ header{
   position: relative;
   overflow: hidden;
 }
+.overlay-div{
+  position: relative;
+}
 .room-img{
   width: 100%;
 }
@@ -158,10 +163,13 @@ header{
   border-bottom-right-radius: 15px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
+z-index: 1;
+
 }
 .room-overlay{
+  z-index: 2;
   width: 100%;
-  height: 87%;
+  height: calc(100% - 7px );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +181,7 @@ header{
   animation-duration : 1s ;
 
 }
-/* Hover Effect for rooms */
+/* Hover Effect for rooms*/
 .room:hover .room-overlay{
   animation-name: overlay-ani-open ;
   animation-duration : 1s ;
@@ -212,6 +220,12 @@ header{
   padding: 1rem;
   margin-bottom: 2rem;
 }
+.rooms-empty-container{
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+
+}
 form{
   margin: 2rem;
   display: flex;
@@ -226,68 +240,83 @@ input{
   width: 200px;
   padding: 0.2rem;
 }
-/* input[type='range']{
-  width: 400px;
-} */
 .check{
   width: 10px;
   margin-right: 0.5rem;
 }
+.range{
+  align-items: center;
+}
+.img-grid{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 
+}
+.img-grid img{
+  width: 100%;
+}
+.details-info{
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+}
+.details-info h2{
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+.details{
+  flex: 3;
+}
+.info{
+  flex: 2;
+  margin-left: 3rem;
+}
+.info p{
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.extras{
+  width: 90%;
+  margin: 0 auto;
+}
+.list{
+  list-style-type: circle;
+  list-style-position: inside;
+  margin: 1rem 0 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 @media (max-width : 800px){
   #menu{
     display: block;
   }
+  nav{
+    position: relative;
+  }
   header{
     flex-direction: column;
     height: 100%;
+    position: relative;
     background-color: transparent;
   }
   .header-flex{
     width: 100%;
     height: 66px;
     padding: 0 3rem;
+    position: fixed;
     background-color: #f7fac8de;
 
+  }
+  .info{
+    margin-left: 0;
+    margin: 1rem 0;
   }
   .items{
     flex-direction: column;
@@ -295,6 +324,8 @@ input{
     text-align: center;
     width: 100%;
     background-color: #f7fac8de;
+    position: fixed;
+    top: 66px;
     margin: 0;
   }
   #show{
@@ -308,8 +339,21 @@ input{
     display: block;
     margin: 0.5rem 0;
   }
-  .service-box, .featured-room, .rooms-container{
+  .service-box, .featured-room, .rooms-container, .img-grid{
     grid-template-columns: repeat(2, 1fr);
+  }
+  .details-info{
+    flex-direction: column;
+  }
+  .list{
+    grid-template-columns: 1fr;
+  }
+  .details-info{
+    margin-bottom: 0;
+  }
+  form{
+    flex-direction: column;
+    padding-left: 1rem;
   }
 }
 @media (max-width : 500px){
@@ -319,7 +363,7 @@ input{
   .banner h1{
     font-size: 3rem;
   }
-  .service-box, .featured-room, .rooms-container{
+  .service-box, .featured-room, .rooms-container, .img-grid{
     grid-template-columns: 1fr ;
   }
 }

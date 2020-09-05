@@ -1,15 +1,25 @@
-import React,{useState} from 'react';
+import React,{Component} from 'react';
 import './all.min.css'
 import {Link} from "react-router-dom"
 
-function Nav() {
-    const [navToggle, setNavToggle] = useState(false)
-    const handleNavToggle = ()=>{
-        setNavToggle(!navToggle)
+class Nav extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            navToggle : false,
+        }
     }
-    return (
-        <nav>
-            <header>
+    handleNavToggle = ()=>{
+        this.setState({
+            navToggle : !this.state.navToggle
+        })
+    }
+    
+    render() {
+        return (
+            <nav>
+                <header>
                 <div className='header-flex' >
                     <svg width="250" height="37" viewBox="0 0 250 37" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="1" y="1" width="248" height="35" stroke="#222222" stroke-width="2"/>
@@ -29,19 +39,20 @@ function Nav() {
 </filter>
 </defs>
 </svg>
-                    <i className='fas fa-bars' id='menu' onClick={handleNavToggle} ></i>
+                    <i className='fas fa-bars' id='menu' onClick={this.handleNavToggle} ></i>
                 </div>
-                <ul className='items' id={navToggle? 'show' : 'hide'} >
+                <ul className='items' id={this.state.navToggle? 'show' : 'hide'} >
                     <li className='item'>
-                        <Link to='/' className='item-link' onClick={handleNavToggle} >Home</Link>
+                        <Link to='/' className='item-link' onClick={this.handleNavToggle} >Home</Link>
                     </li>
                     <li className='item'>
-                        <Link to='/rooms' className='item-link' onClick={handleNavToggle} >Rooms</Link>
+                        <Link to='/rooms' className='item-link' onClick={this.handleNavToggle} >Rooms</Link>
                     </li>
                 </ul>
             </header>
-        </nav>
-    )
+            </nav>
+        )
+    }
 }
 
 export default Nav
