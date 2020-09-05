@@ -23,7 +23,6 @@ export function Globalcontext({children}) {
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
-        console.log('hi');
         let tempRoom = data.filter(el  => el.fields.price*10 <= state.form.price);
         tempRoom = tempRoom.filter(el => el.fields.capacity <= state.form.guests) 
         if(state.form.breakfast){
